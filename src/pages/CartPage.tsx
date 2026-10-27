@@ -62,7 +62,10 @@ export function CartPage() {
         ))}
         <div className="flex justify-between items-center pt-4">
           <span className="text-xl font-bold">Итого: {getTotal()} ₽</span>
-          <button className="px-6 py-3 bg-pink-500 text-white rounded-xl hover:bg-pink-600 font-medium">
+          <button
+            onClick={() => navigate('/checkout')}
+            className="px-6 py-3 bg-pink-500 text-white rounded-xl hover:bg-pink-600 font-medium"
+          >
             Оформить заказ
           </button>
         </div>

@@ -4,11 +4,27 @@ import type { Product } from '../api/products';
 
 type CartItem = { product: Product; quantity: number };
 
+export type OrderData = {
+  id: string;
+  items: CartItem[];
+  total: number;
+  name: string;
+  phone: string;
+  address: string;
+  date: string;
+  time: string;
+  comment?: string;
+  createdAt: string;
+};
+
 type CartStore = {
   items: CartItem[];
+  lastOrder: OrderData | null;
   addItem: (product: Product) => void;
   removeItem: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
+  clearCart: () => void;
+  setLastOrder: (order: OrderData) => void;
   getTotal: () => number;
 };
 
@@ -16,6 +32,7 @@ export const useCart = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
+      lastOrder: null,
       addItem: (product) =>
         set((state) => {
           const existing = state.items.find((i) => i.product.id === product.id);
@@ -42,6 +59,8 @@ export const useCart = create<CartStore>()(
               : i,
           ),
         })),
+      clearCart: () => set({ items: [] }),
+      setLastOrder: (order) => set({ lastOrder: order }),
       getTotal: () =>
         get().items.reduce(
           (sum, item) => sum + item.product.price * item.quantity,
