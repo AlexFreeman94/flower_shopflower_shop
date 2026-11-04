@@ -1,4 +1,4 @@
-import { api } from './client';
+import { mockProducts } from './mockData';
 
 export type Product = {
   id: number;
@@ -10,9 +10,17 @@ export type Product = {
   in_stock: boolean;
 };
 
+// Имитация задержки сети (чтобы было видно состояние загрузки)
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 export const productsApi = {
-  // Реальный запрос к твоему FastAPI
-  getAll: () => api.get<Product[]>('/api/products').then((res) => res.data),
-  getById: (id: number) =>
-    api.get<Product>(`/api/products/${id}`).then((res) => res.data),
+  getAll: async (): Promise<Product[]> => {
+    await delay(400);
+    return mockProducts;
+  },
+
+  getById: async (id: number): Promise<Product | undefined> => {
+    await delay(300);
+    return mockProducts.find(p => p.id === id);
+  },
 };

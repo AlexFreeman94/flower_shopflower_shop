@@ -51,9 +51,55 @@ function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
       <main className="flex-grow">{children}</main>
-      <footer className="bg-gray-800 text-gray-400 py-6 text-center mt-auto">
-        © 2026 FlowersShop. Все права защищены.
-      </footer>
+      <footer className="bg-gray-900 text-gray-400 pt-12 pb-6 mt-auto">
+  <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    {/* О магазине */}
+    <div>
+      <p className="text-2xl font-bold text-white mb-4">🌸 FlowersShop</p>
+      <p className="text-sm leading-relaxed">
+        Дарим эмоции с 2020 года. Свежие авторские букеты с доставкой по всему городу.
+      </p>
+    </div>
+
+    {/* Покупателям */}
+    <div>
+      <p className="text-white font-semibold mb-4">Покупателям</p>
+      <ul className="space-y-2 text-sm">
+        <li>
+          <Link to="/catalog" className="hover:text-pink-400 transition-colors">Каталог</Link>
+        </li>
+        <li>
+          <Link to="/cart" className="hover:text-pink-400 transition-colors">Корзина</Link>
+        </li>
+        <li><span className="cursor-pointer hover:text-pink-400 transition-colors">Доставка и оплата</span></li>
+      </ul>
+    </div>
+
+    {/* Контакты */}
+    <div>
+      <p className="text-white font-semibold mb-4">Контакты</p>
+      <ul className="space-y-2 text-sm">
+        <li>📞 +7 (999) 123-45-67</li>
+        <li>✉️ hello@flowersshop.ru</li>
+        <li>📍 г. Москва, ул. Цветочная, 1</li>
+      </ul>
+    </div>
+
+    {/* Режим работы */}
+    <div>
+      <p className="text-white font-semibold mb-4">Режим работы</p>
+      <ul className="space-y-2 text-sm">
+        <li>Ежедневно: 8:00 — 22:00</li>
+        <li>Доставка: круглосуточно</li>
+        <li>Приём заказов онлайн: 24/7</li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm">
+    © 2026 FlowersShop. Все права защищены.
+  </div>
+</footer>
     </div>
   );
 }
