@@ -3,13 +3,13 @@ import { useQuery } from '@tanstack/react-query';
 import { productsApi } from '../api/products';
 import { useCart } from '../store/cart';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import {toast} from 'react-hot-toast';
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const addItem = useCart((state) => state.addItem);
-  const [quantity, setQuantity] = useState(1);
+  const {navigate} = useNavigate();
+  const {addItem} = useCart((state) => state.addItem);
+  const {quantity, setQuantity} = useState(1);
 
   const {
     data: product,
