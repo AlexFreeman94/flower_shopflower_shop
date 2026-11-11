@@ -5,7 +5,6 @@ import toast from 'react-hot-toast';
 
 export function CheckoutPage() {
   const navigate = useNavigate();
-  // Добавили setLastOrder в деструктуризацию
   const { items, getTotal, clearCart, setLastOrder } = useCart();
 
   const [formData, setFormData] = useState({
@@ -77,7 +76,7 @@ export function CheckoutPage() {
       return;
     }
 
-    // Генерируем номер заказа (в реальности придёт с бэка)
+    // Генерируем номер заказа 
     const orderId = Math.floor(100000 + Math.random() * 900000).toString();
 
     // Сохраняем заказ в store
