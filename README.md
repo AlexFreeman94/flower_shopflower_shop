@@ -34,42 +34,6 @@
 - **VS Code** — основной редактор
 - **Netlify** — деплой и хостинг
 
----
-
-##  Структура проекта
-flower_shop/
-├── public/                    # Статические файлы (background.svg)
-├── src/
-│   ├── api/                   #  API-слой и контракты
-│   │   ├── client.ts          # Axios-клиент с интерцепторами
-│   │   ├── types.ts           # TypeScript-интерфейсы (Product, Order)
-│   │   ├── products.ts        # API для товаров (mock/real switch)
-│   │   ├── orders.ts          # API для заказов
-│   │   └── mockData.ts        # Мок-данные для разработки
-│   ├── components/            # Переиспользуемые компоненты
-│   │   ├── ParallaxHero.tsx   # 3D-параллакс главный экран
-│   │   ├── ProductCard.tsx    # Карточка товара
-│   │   └── Footer.tsx         # Футер сайта
-│   ├── pages/                 # Страницы приложения
-│   │   ├── HomePage.tsx       # Главная (hero + benefits + reviews)
-│   │   ├── CatalogPage.tsx    # Каталог товаров
-│   │   ├── ProductPage.tsx    # Карточка товара
-│   │   ├── CartPage.tsx       # Корзина
-│   │   ├── CheckoutPage.tsx   # Оформление заказа
-│   │   └── SuccessPage.tsx    # Экран подтверждения
-│   ├── store/                 # Zustand-сторы
-│   │   └── cart.ts            # Корзина с persist в localStorage
-│   ├── App.tsx                # Роутинг и layout
-│   ├── main.tsx               # Точка входа
-│   └── index.css              # Глобальные стили + Tailwind
-├── docs/
-│   └── API_CONTRACT.md        # Контракт API для бэкенда
-├── .env                       # Переменные окружения (не коммитится)
-├── .env.example               # Шаблон переменных окружения
-├── vite.config.ts             # Конфигурация Vite
-├── tailwind.config.cjs        # Конфигурация Tailwind CSS
-└── package.json               # Зависимости и скрипты
-
 ###  Ключевые файлы для понимания архитектуры
 
 | Файл | Зачем смотреть |
